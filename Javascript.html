@@ -1,0 +1,742 @@
+<html>
+<script>
+    // data types ; boolean, number, symbol, number, object, undefined, null, string
+    // variables
+
+    var myName = "Joe" // used throughout the program
+
+    myName = 8
+
+    //3 ways to declare variables in js
+
+    let ourName = "FreeCodeCamp" // only used within the scope
+
+    const pi = 3.14 // constant through out the program, can never change
+
+    //declaring and assigning variables
+    // end all lines with semi colon henceforth
+
+    var a; // declaring
+    var b = 2; //asigning
+
+    a = 7;
+
+    b = a;
+
+    console.log(a); // allows to see things in the console
+
+    // variables are case sensitive.
+
+    //good habit to use camel case
+
+    var sum = 10 + 10;
+    console.log(sum); // displays the value of sum
+
+    var difference = 45 - 22;
+    console.log(difference);
+
+    var mult = 8 * 10;
+    console.log(mult);
+
+    var div = 8 / 2;
+    console.log(div);
+
+    var inc = mult++; //increment the value of mult by 1 then assign it to inc
+    console.log(inc);
+
+    var dec = inc--; //decrement the value of inc by 1 then assign it to dec
+    console.log(dec);
+
+    var dec = 3.3; // decimal numbers
+
+    var prod = 3.3 * 3.4;
+    console.log(prod);
+
+    var decdiv = 4.0 / 2.0;
+    console.log(decdiv);
+
+
+    var remainder = 11 % 2; // remainder operator. also used to determine f number is even or odd
+    console.log(remainder);
+
+    b = 2;
+    b = +10; // compound addition
+    b -= 2 // compound subtraction
+    b *= 5 // compound multiplication
+
+
+    var name = "Joe"; //string variables
+
+    //escaping literal quotes in js
+    var myStr = "I am a \"double quoted\" string inside \"double quotes\"";
+    console.log(myStr);
+
+    // you can also start with a single quote to avoid using escapes
+    //if you use back ticks, you can use both single and double quotes in the same line.
+
+    // Escapes
+    /***
+    CODE OUTPUT
+    \'    Single quote
+    \"    Double quote
+    \\    backslash
+    \n    New line
+    \r    Carriage return
+    \t    Tab
+    \b    Backspace7
+    \f    Form feed
+    **/
+
+    var myStr = "First line\n\t\\Second line\nThirdLine";
+    console.log(myStr);
+
+
+    var ourStr = "I come first " + "I come second"; //Concatenation
+    console.log(ourStr);
+
+    var theStr = "I come first ";
+    theStr += "I come second"; //Another way to concatenate
+    console.log(theStr);
+
+
+    var myName = "joe";
+    var str = "My name is " + myName + " and I am well";
+    console.log(str);
+
+
+    var anAdjective = "Tiresome, but rewarding";
+    var myStr = "Coding is ";
+    myStr += anAdjective;
+    console.log(myStr);
+
+
+    //find length of a string
+
+    var firstLength;
+    var firstName = "Gathekia";
+    firstLength = firstName.length;
+    console.log(firstLength);
+
+    // find first letter of a word
+    var firstLetter = firstName[0];
+    console.log(firstLetter);
+
+    //Changing strings
+    //Strings are immutable, you can only change the whole string
+
+    //Finding the nth string
+    firstLetter = firstName[3];
+    console.log(firstLetter);
+
+    //to find the last letter using brackets
+
+    var lastLetter = firstName[firstName.length - 1]; //subtracted 1 because Javascript starts counting from 0. Therefore, the last letter is at position 7, and the length of the string is 8.
+    console.log(lastLetter);
+    // subtract however much you want to find the nth last letter.
+
+    //Word Blaks
+
+    function wordBlanks(myNoun, myAdjective, myVerb, myAdverb) {
+        var result = "";
+        result = "The " + myAdjective + " " + myNoun + " " + myVerb + " to the store " + myAdverb;
+        return result;
+    }
+    console.log(wordBlanks("dog", "big", "ran", "quickly"));
+
+    //Arrays
+    var ourArray = [
+        [
+            [
+                ["My name is Joe", 23, "Rose", 32.5]
+            ], //this is a 4 dimensions array, because you access the array with the name or label of the main array, an index to indicate the second level array, another index to indicate the third level, and a final index to tag the contents of that third level array.
+            ["My name is Vendeta", 33, "Lily", 52.5]
+        ],
+        ["Second line", 0, "Some text"]
+    ]; //Can store multiple data types
+    console.log(JSON.stringify(ourArray[0][1][1])); //You can print out arrays
+    //Or you can store data from arrays in variables
+    var name = ourArray[0];
+    console.log(name);
+
+    // Nested Arrays/ Multidimensional arrays
+    //Store arrays in arrays
+    //Dedecively, the first index points to the array and the second index points to the element inside that array
+    var theArray = [
+        ["The universe is great", 23],
+        ["Kinuthia is a sleeper", 69]
+    ];
+
+    console.log(theArray[0][1]); //points at first array, second element
+    console.log(theArray[1][0]); //points at second array, first element
+
+    //deducively, you can also assign the elements of the nested array to a variable
+    var Kinuthia = theArray[1][0];
+    console.log(Kinuthia);
+    //Accesing Arrays with indices
+
+    // modifying using indices
+    theArray[1][0] = "Fatman is a deeper sleeper than Kinuthia";
+    console.log(theArray[1][0]);
+
+    //append data to an array with push
+    theArray.push(["Rosebell is a lesbian", 21]);
+    console.log(theArray[2][0]);
+    console.log(JSON.stringify(theArray));
+
+    //remove from array with pop
+    var anArray = [
+        ["John F", 35],
+        ["Abraham Linclon", 16],
+        ["George Washington", 1]
+    ];
+    var exArray = anArray.pop();
+    console.log(exArray);
+
+    // Remove first element using shift()
+
+    var newArray = ["Joe", 21, "Rose", 21];
+    var exArray = newArray.shift();
+    console.log(newArray[0]);
+    console.log(exArray);
+
+    //using unshift
+    //Adds an element at the beginning rather than the end
+    newArray.unshift("Paul");
+    console.log(newArray[0]);
+
+
+    //Scope global and local
+    // A global scope variable is visible everywhere in the code even in functions
+    // using var in a function to declare a variable, sets its scope to local, meaning another function cannot see that variable.
+    //Not using var makes the variable global automatically
+    var myGlobal = 10;
+
+    function func1() {
+        var oopsGlobal = 5; //Variable scope local
+
+    }
+
+    function func2() {
+        var output = "Thus, ";
+        if (typeof myGlobal != "undefined") {
+            output += "My global " + myGlobal;
+        }
+
+        if (typeof oopsGlobal != "undefined") {
+            output += " oopsGlobal " + oopsGlobal;
+        } else {
+            console.log("Hehe");
+        }
+
+        console.log(output);
+    }
+
+    func1();
+    func2();
+
+    // A locally scoped variable takes precedence over a globally scoped variable
+    var myCloth = "T shirt";
+
+    function func4() {
+        var myCloth = "Sweater";
+        console.log(myCloth);
+    }
+
+    func4();
+    console.log(myCloth);
+
+    //returning values with return from functions
+
+    function minusSeven(num) {
+        return num - 7;
+    }
+
+    console.log(minusSeven(10)); //returns computed value after using argument, then prints it out to the console
+
+    //the default return value of a function without a return statement is undefined
+
+    //you can assign a returned value to a variable
+
+    //using queues with nextInLine function
+
+    function nextInLine(arr, item) {
+        arr.push(item);
+        return arr.shift();
+
+    }
+
+    var testArr = [1, 2, 3, 4, 5];
+
+    console.log("Before :" + JSON.stringify(testArr));
+    console.log(nextInLine(testArr, 6));
+    console.log("After: " + JSON.stringify(testArr));
+
+    //Boolean datatypes
+
+    function welcomeToBoolean() {
+        return false;
+    }
+
+    //if statements
+    function outTrueOrFalse(isItTrue) {
+        if (isItTrue) {
+            return "Yes that was true";
+        }
+        return "No, it's false";
+    }
+
+    function trueOrFalse(wasThatTrue) {
+        if (!wasThatTrue) {
+            return "Yes that was !true";
+        }
+        return "No, that was !false";
+    }
+
+    console.log(outTrueOrFalse(false));
+    console.log(trueOrFalse(true));
+
+    //equality operator is ==
+    // == converts the two elements to the same data type then checks for equality
+    // the strict equality operator is === , it does not convert the data types
+    // or operator
+    // != inequality operator. does type conversion
+    // !== strict inequality operator
+    // >= greater than or equal to
+    // <= less than or equal to
+    // > greater than < less than
+    // && logical and
+
+    //using switch statements instead of else if
+    function caseInSwitch(val) {
+        var answer = "";
+        switch (val) {
+            case 1: //uses strict equality
+                answer = "alpha";
+                break; // breaks the loop
+            case 2:
+                answer = "beta";
+                break;
+            case 3:
+                answer = "gamma";
+                break;
+            case 4:
+                answer = "delta";
+                break;
+            default: // similar to the else statement
+                answer = "Not applicable";
+        }
+
+        return answer;
+    }
+
+
+
+    function checkNum(val) {
+        switch (val) {
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+                return "Lower";
+                break;
+            case 6:
+            case 7:
+            case 8:
+            case 9:
+            case 10:
+                return "Higher";
+                break;
+            default:
+                return "try again!";
+        }
+    }
+
+    console.log(checkNum(1));
+
+
+
+    console.log(caseInSwitch(4));
+
+    function isLess(a, b) {
+        if (a > b) {
+            return true;
+        }
+        return false;
+    }
+
+    console.log(isLess(5, 10));
+
+    //an easier way to do this is
+    function isItLess(a, b) {
+        return a < b;
+    }
+
+    var space = isItLess(4, 1); //you can store boolean values in variables and use them
+    console.log(space);
+
+    console.log(isItLess(3, 7));
+
+    //you can exit early with a return statement
+    function capital(a, b) {
+        if (a < 0 || b < 0) {
+            return undefined; //early returning in case this condition is true
+        } else {
+            var me = Math.round(Math.pow(Math.sqrt(a) + Math.sqrt(b), 2));
+            return me;
+        }
+    }
+
+    console.log(capital(4, 16));
+    console.log(capital(-1, 0));
+    console.log(Math.round(4.4));
+
+    var count = 0;
+
+    function cc(card) {
+        switch (card) {
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+            case 6:
+                count++;
+                break;
+            case 10:
+            case "J":
+            case "Q":
+            case "K":
+            case "A":
+                count--;
+                break;
+        }
+        var holdbet = "Hold";
+        if (count > 0) {
+            holdbet = "Bet";
+        }
+        return count + " " + holdbet;
+    }
+
+    cc(2);
+    cc("K");
+    cc("A");
+    console.log(cc(5));
+
+    //Objects       //Name of the object is ourDog
+    var ourDog = { //We access objects using properties instead of indices to access values
+        "name": "Camper",
+        "legs": 4,
+        "Tails": 1,
+        "friends": ["everything!"] //the value is an array
+    };
+
+    //accessing objects
+    var nameValue = ourDog.name;
+    var legValue = ourDog.legs;
+
+    // we can also use brackets to access objects, when the names of properties have spaces in them
+
+    var testObj = {
+        "an entree": "hamburger",
+        "my side": "veggies",
+        "the drink": "Water"
+    };
+
+    var entreeValue = testObj["an antree"];
+    var drinkValue = testObj['the drink'];
+
+    //we can use variables to access object properties when we assign attributes to the variables
+
+    var myChild = {
+        10: "Ten years old",
+        20: "Twenty years old",
+        25: "A grown up"
+    };
+
+    var children = 10;
+    console.log("Chilren are the ones below " + myChild[children]);
+
+    //object updating
+    ourDog.name = "Halsey";
+    console.log(ourDog.name);
+
+    //adding object properties
+    ourDog.bark = "Bow ow";
+    console.log(ourDog.bark);
+
+    //Adding using bbrackets
+    myChild[5] = "My infant";
+    console.log(myChild[5]);
+
+    // deleting properties
+    delete ourDog.tails;
+    delete myChild[5];
+
+
+    //using objects instead of switch cases
+    function autoLook(val) {
+
+        var lookup = {
+            "Alpha": "Adams",
+            "Bravo": "Boston",
+            "Charlie": "Chicago",
+            "Delta": "Denver"
+        };
+        var azz = val;
+        return lookup[azz];
+    }
+
+    console.log(autoLook("Alpha"));
+
+    //Checking Object properties
+    if (myChild.hasOwnProperty(5)) {
+        console.log(5);
+
+    } else {
+        console.log("property not found");
+    }
+
+    // an object has all the data types, including arrays and other objects
+    var myMusic = [ //array holding object
+        {
+            "artist": " Billy Joe",
+            "title": "Piano man",
+            "releaseYear": 1973,
+            "formats": ["CD", "MP3", "LP", "8T"], //array inside object
+            "gold": true
+        }, {
+            "artist": "Beau Carnes",
+            "title": "Cereal man",
+            "releaseYear": 2003,
+            "formats": ["Mp3", "Mp4", "Youtube Video"],
+            "gold": false
+        }
+    ];
+
+    console.log(myMusic[0].formats[0]);
+
+    //nesting objects inside objects
+    var myStorage = {
+        "car" : {
+            "inside": {
+                "glove box": "maps",
+                "passenger seat": "crumbs"
+            },
+            "outside door": {
+                "trunk": "jack"
+            }
+        }
+    };
+
+    var gloveBoxContents = myStorage.car.inside["glove box"];
+    console.log(gloveBoxContents);
+
+    console.log(myStorage.car["outside door"].trunk);
+
+    //therefore, to access sub objects, you can chain the dot and brackets notations.
+
+    //accessing nested arrays and objects
+    var myPlants = [
+        {
+            type: "flowers",
+            list: [
+                "rose",
+                "tulip",
+                "dendalion"
+            ]
+        },
+        {
+            type: "trees",
+            list: [
+                "fir",
+                "pine",
+                "birch"
+            ]
+        }
+    ];
+
+    //this is an array containing two objects and two sub arrays
+    // accessing them is the same as using nested objects
+
+    var access = myPlants[0].list[1];//myPlants is an array thus the brackets. list is an attribute whose key value is an array thus the need to specify which vaue in that array you need to access.
+    console.log(access);
+
+    //Record collection
+
+    var collection = {
+        "2548" : {
+            "album" : "Slippery when wet",
+            "artist" : "Bon Jovi",
+            "tracks" : [
+                "Let it rock",
+                "You give love a bad name"
+            ]
+        },
+        "2468" : {
+            "album" : "1999",
+            "artist" : "Prince",
+            "tracks" : [
+                "1999",
+                "Little Red Corvette"
+            ]
+        },
+        "1245" : {
+            "artist" : "Robert Palmer",
+            "tracks" : [
+                "L",
+                "Y"
+            ]
+        },
+        "5439" : {
+            "album" : "ABBA Gold"
+        }
+    };
+
+    //An object containing other objects
+    // they form a record that has ids and info about the records
+    //Joey thinks they can be translated into a table and thus stored in a db
+
+    var collectionCopy = JSON.parse(JSON.stringify(collection));// this creates a copy of collection before any alterations so we can always go back to it.
+    //We then attempt to create a function which updates these records
+    function updateRecords(id, prop, value){
+        collection[id][prop] = value; //from 3 attempts, Joey discovers that, even though a quoted object property is stored in a variable, when accessing that property, you must follow the rules of object accessing as though the variable were the stringed property itself and thus use square brackets instead of dot reference
+        return collection[id][prop];
+    }
+
+    var updatedVal = updateRecords(2468, "album", 2000);
+    console.log(updatedVal);
+
+    //check up on the copy of our object
+    console.log(JSON.stringify(collectionCopy));
+    //JSON.parse is the way to copy the contents of one data structure to another.
+
+    //iterating with while loops
+    var myArray = [];
+
+    var i = 0 ;
+    while(i < 5){
+        myArray.push(i);
+        i++;
+    }
+    console.log(myArray);
+
+    //For loops
+
+    var ourArray = [];
+    var j = 0;
+    for (j=0; j<5; j++){
+        ourArray.push(j);
+    }
+    console.log(ourArray);
+
+     //for(f = 1; f<20000; f++){
+        //while (f%2==0){
+       // console.log(f);
+    //}}
+
+    //counting backwards
+    var backArray = [];
+    for (var i = 10; i>0 ; --i){
+        backArray.push(i);
+    }
+    console.log(backArray);
+    
+    //iterating over an array with a for loop
+    var forArray = [10, 11, 12, 13];
+    var k = 0;
+    for (var q=0; q<forArray.length; q += 1){
+         k += forArray[q];
+    }
+    console.log(k);
+
+    //nesting for loops
+    function multiplyAll(arr){
+        var product = 1;
+        for (i=0; i < arr.length; i++){
+            for (var j=0; j < arr[i].length; j++){
+                product *= arr[i][j] // when using this compound multiplication, either declare the variable here or assign it to 1. 0 would make the whole result zero.
+                return product;
+            }
+        }
+        
+        return "No such name, go again";
+    }
+
+    var theArr = [[1,2], [3,4], [5,6,7]];
+    var product = multiplyAll(theArr);
+
+    console.log(product);
+
+    //Iterate do while loops...
+    //do while must run first and then check the condition
+
+    var myArray = [];
+    var i = 10;
+
+    do {
+        myArray.push(i);
+        i++;
+    } while (i<5) ;
+    console.log(i, myArray);
+    //profile lookup
+
+    var contacts = [
+        {
+            "firstname": "Akira",
+            "lastname": "Laine",
+            "number": "1234",
+            "likes": ["Pizza", "coding", "Brownie points"]
+        },
+        {
+            "firstname": "Harry",
+            "lastname": "Potter",
+            "number": "2345",
+            "likes": ["Hogwarts", "Magic", "Hagrid"]
+        },
+        {
+            "firstname": "Sherlock",
+            "lastname": "Holmes",
+            "number": "3456",
+            "likes": ["Mysteries", "Classical music"]
+        },
+    ];
+
+    function lookUpProfile(name, prop){
+    
+        for(var a = 0; a < contacts.length; a++){
+            while(contacts[a].firstname === name){
+                var b = contacts[a][prop];
+                return b; //This line must be here, in the same scope as the assigning
+            }
+        }
+        return "No such name, try again"; // this is the default position
+    }
+
+    console.log(lookUpProfile("Sherlock", "likes"));
+
+
+    function lookInProfile(name, prop){
+    
+    for(var a = 0; a < contacts.length; a++){
+        while(contacts[a].hasOwnProperty(name)){
+            var b = contacts[a][prop];
+            return b; //This line must be here, in the same scope as the assigning
+        }
+    }
+    return "No such name, try again"; // this is the default position
+}
+
+console.log(lookInProfile("firstname", "likes"));
+
+
+    
+
+   // Lessons from this encounter
+   // I have spent many attempts looking through alternate ways to solving this conundrum, and what Ive gathered is
+   // 1 - The hasOwnProperty is used only on objects to find their member attributes and not values.
+   // - Think of object properties like array indices, for example arr[2] is actually an element, therefore contacts[1].firstname is a value accessed by that attribute.
+   // for this reason, I used a logical sign on contacts[a].firstname and not on contacts[a].firstname.name as I had previously done many times.
+
+</script>
+
+</html>
